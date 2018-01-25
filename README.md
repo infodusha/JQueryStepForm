@@ -25,7 +25,9 @@ A JQuery plugin for easy creating step forms
 			<input type="text" name="email">
 			<button type="submit" class=step_form_next">Next »</button>
 		</div>
-		<div class="step_form_block"><!-- Last block for output message. Can be set by a callback or set in HTML -->
+		<div class="step_form_block">
+			<!-- Last block for output message.
+			Can be set by a callback or set in HTML -->
 			<span id="step_form_result"></span>
 		</div>
 	</form>	
@@ -83,7 +85,9 @@ The plugin creates `POST` request to the server. All data *serializes* and need 
 			<input type="text" name="email">
 			<button type="submit" class=step_form_next">Далее »</button>
 		</div>
-		<div class="step_form_block"><!-- Последний блок для вывода сообщения результата. Устанавливается через callback или прямо в HTML -->
+		<div class="step_form_block">
+			<!-- Последний блок для вывода сообщения результата.
+			Устанавливается через callback или прямо в HTML -->
 			<span id="step_form_result"></span>
 		</div>
 	</form>	
