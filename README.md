@@ -40,6 +40,10 @@ $("#stepForm1").stepForm({
 	path: "/post.php",
 	result_callback: function(answer){
 		$("#step_form_result").html(answer);
+	},
+	on_step_change: function(step_now, goNext){
+		console.log("Now is " + step_now + " step");
+		//goNext(); // Emulate next button
 	}
 });
 ```
@@ -49,7 +53,8 @@ $("#stepForm1").stepForm({
 | Option name | Default value | Description
 ---|---|---
 path | `none` | Path for requests (**required**).
-result_callback | `none` | Callback function with answer for done requests.
+result_callback | `none` | Callback function with *answer* for done requests.
+on_step_change | `none` | Callback function with *step* and *goNext* function.
 post_on_step | false | Send request every step if `true`.
 block_selector | ".step_form_block" | JQuery selector for changing blocks.
 next_selector | ".step_form_next" | JQuery selector for "next step" buttons.
@@ -100,6 +105,10 @@ $("#stepForm1").stepForm({
 	path: "/post.php",
 	result_callback: function(answer){
 		$("#step_form_result").html(answer);
+	},
+	on_step_change: function(step_now, goNext){
+		console.log("Теперь " + step_now + " шаг");
+		//goNext(); // Эмулирует нажатие кнопки "далее"
 	}
 });
 ```
@@ -110,6 +119,7 @@ $("#stepForm1").stepForm({
 ---|---|---
 path | `не задан` | Путь для запросов (**обязателен**).
 result_callback | `не задан` | Callback - функция с ответом для успешно выполненых запросов.
+on_step_change | `не задан` | Callback - функция с *шагом* и функцией *идти далее*.
 post_on_step | false | Посылать запрос после каждого шага если  `true`.
 block_selector | ".step_form_block" | JQuery - селектор для меняющихся блоков.
 next_selector | ".step_form_next" | JQuery - селектор для кнопок "далее".

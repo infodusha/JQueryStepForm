@@ -1,7 +1,7 @@
 /****************************
 Step form plugin by infodusha
-Version 1.0
-25.01.2018
+Version 1.1
+27.01.2018
 **********/
 (function($){
 	$.fn.stepForm = function(options){
@@ -18,8 +18,9 @@ Version 1.0
 			animate_duration: "fast"
 		}, options);
 
-		var	onNextBtn = function(event){
-			event.preventDefault();
+		var	goNext;
+		goNext = function(event){
+			if(event){ event.preventDefault(); }
 			$this_btn = $(this);
 			$this_btn.prop("disabled", true);
 
@@ -42,12 +43,12 @@ Version 1.0
 					$this.find(settings.block_selector).eq(step).fadeIn(settings.animate_duration);
 				});
 			}
-
+			if(settings.on_step_change){ settings.on_step_change(step, goNext); }
 		};
 
 		return this.each(function(){
 			var $this = $(this);
-			$this.find(settings.next_selector).click(onNextBtn);
+			$this.find(settings.next_selector).click(goNext);
 			$this.find(settings.block_selector).hide();
 			$this.find(settings.block_selector).eq(0).show();
 		});
